@@ -9,14 +9,14 @@ export const App = () => {
 
   const handleDeckRequest = () => {
     fetch("https://deckofcardsapi.com/api/deck/new/")
-      .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then(res => res.json())
+      .then(res => console.log(res));
   };
 
-  const handleCardsRequest = (deckId) => {
+  const handleCardsRequest = deckId => {
     fetch("https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=52")
-      .then((res) => res.json())
-      .then((res) => setCardsList([...res.cards]));
+      .then(res => res.json())
+      .then(res => setCardsList([...res.cards]));
   };
 
   const handleShowDeck = () => {
@@ -38,6 +38,7 @@ export const App = () => {
         Novo baralho
       </button>
       {ShowDeck & <CardsList cardsList={cardsList} />}
+      <div></div>
     </div>
   );
 };
